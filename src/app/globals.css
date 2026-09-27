@@ -1,0 +1,174 @@
+@import "tailwindcss";
+
+:root {
+  /* Cartographic & Editorial Palette */
+  --bg-primary: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #f1f5f9;
+  --border-subtle: #e2e8f0;
+  --border-medium: #cbd5e1;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --text-subtle: #94a3b8;
+  
+  /* Brand Accent: Precision Deep Slate / Indigo & Editorial Amber */
+  --brand-accent: #0284c7;
+  --brand-accent-hover: #0369a1;
+  --brand-navy: #0f172a;
+  --brand-gold: #d97706;
+
+  /* Semantic Map Facility Accents */
+  --color-school: #2563eb;
+  --color-hospital: #dc2626;
+  --color-market: #ea580c;
+  --color-bank: #059669;
+  --color-bus: #7c3aed;
+  --color-park: #16a34a;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  overflow-x: hidden;
+}
+
+/* Custom Leaflet Marker Styles - Editorial Style */
+.re-price-marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translate(-50%, -100%);
+  cursor: pointer;
+  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), z-index 0.15s ease;
+  user-select: none;
+}
+
+.re-price-marker:hover,
+.re-price-marker.active {
+  z-index: 1000 !important;
+  transform: translate(-50%, -105%) scale(1.08);
+}
+
+.re-price-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #ffffff;
+  color: #0f172a;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  padding: 5px 8px;
+  border-radius: 6px;
+  border: 1px solid #0f172a;
+  box-shadow: 0 2px 6px -1px rgba(15, 23, 42, 0.25);
+  white-space: nowrap;
+}
+
+.re-price-marker.active .re-price-badge {
+  background: #0f172a;
+  color: #ffffff;
+  border-color: #0284c7;
+  box-shadow: 0 0 0 2px #0284c7;
+}
+
+.re-price-marker.rent .re-price-badge {
+  border-left: 4px solid #0284c7;
+}
+
+.re-price-marker.sale .re-price-badge {
+  border-left: 4px solid #0f172a;
+}
+
+.re-price-pin-dot {
+  width: 6px;
+  height: 6px;
+  background: #0f172a;
+  border-radius: 50%;
+  margin-top: 2px;
+  border: 1px solid #ffffff;
+}
+
+.re-price-marker.active .re-price-pin-dot {
+  background: #0284c7;
+  width: 8px;
+  height: 8px;
+}
+
+/* Facility Markers */
+.re-facility-marker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translate(-50%, -50%);
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1.5px solid currentColor;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.15s ease;
+  cursor: pointer;
+}
+
+.re-facility-marker:hover {
+  transform: translate(-50%, -50%) scale(1.2);
+  z-index: 999 !important;
+}
+
+.re-facility-school { color: #2563eb; }
+.re-facility-hospital { color: #dc2626; }
+.re-facility-market { color: #ea580c; }
+.re-facility-bank { color: #059669; }
+.re-facility-bus_stop { color: #7c3aed; }
+.re-facility-park { color: #16a34a; }
+
+/* Custom Leaflet Map Container */
+.leaflet-container {
+  font-family: inherit !important;
+  background-color: #f1f5f9 !important;
+  width: 100%;
+  height: 100%;
+  outline: none;
+}
+
+/* Editorial Map Controls */
+.leaflet-bar {
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 6px !important;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+}
+
+.leaflet-bar a {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  line-height: 28px !important;
+  width: 30px !important;
+  height: 30px !important;
+}
+
+.leaflet-bar a:hover {
+  background-color: #f8fafc !important;
+  color: #0284c7 !important;
+}
+
+/* Subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
